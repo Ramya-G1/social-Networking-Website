@@ -14,7 +14,6 @@ const Profile=()=>{
         }).then(res=>res.json())
         .then(data=>{
             setProfileDetails(data);
-            console.log(data)
         }).catch(error=>{
             console.log(error);
         })

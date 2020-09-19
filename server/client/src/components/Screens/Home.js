@@ -11,7 +11,6 @@ const Home =()=>{
         },
        }).then(res=>res.json())
        .then(data=>{
-           console.log(data.posts)
            setUpload(data.posts)
        }).catch(error=>{
            console.log(error)
@@ -99,7 +98,6 @@ const deletePost = (postid)=>{
         }
     }).then(res=>res.json())
     .then(result=>{
-        console.log(result)
         const newData = upload.filter(item=>{
             return item._id !== result._id
         })
