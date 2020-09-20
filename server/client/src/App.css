@@ -13,6 +13,9 @@ a{
   right:30px !important;
   left:auto !important;
 }
+.collection-item{
+  width:100%
+}
 .gallery{
   display: flex;
   flex-wrap: wrap;
@@ -32,3 +35,8 @@ margin:1%
 .material-icons:hover{
   cursor: pointer;
 }
+/* @media only screen and (max-width: 770px) {
+  .nav-wrapper{
+    width:100%;
+  }
+} */

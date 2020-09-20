@@ -9,7 +9,8 @@ import UserProfile from "./components/Screens/UserProfile";
 import Register from "./components/Screens/Register";
 import CreatePost from "./components/Screens/CreatePost";
 import Getsubspost from './components/Screens/Subsposts';
-
+import Reset from './components/Screens/Resetpassword';
+import Newpassword from './components/Screens/Newpassword'
 import {reducer} from "./reducers/reducer";
 import {initialState} from "./reducers/reducer";
  export const UserContext=createContext();
@@ -23,7 +24,11 @@ import {initialState} from "./reducers/reducer";
       dispatch({type:"USER",payload:user})
      }
      else
-    history.push("/login");
+     {
+      if(!history.location.pathname.startsWith('/reset'))
+      history.push("/login");
+     }
+    
    },[])
    return(
      <Switch>
@@ -34,6 +39,8 @@ import {initialState} from "./reducers/reducer";
     <Route path="/createpost"><CreatePost/></Route>
     <Route path="/profile/:userid"><UserProfile/></Route>
     <Route path="/myfollowingpost"><Getsubspost/></Route>
+    <Route exact path="/reset"><Reset/></Route>
+    <Route  path="/reset/:token"><Newpassword/></Route>
     </Switch>
    )
  }

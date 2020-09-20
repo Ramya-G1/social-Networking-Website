@@ -4,7 +4,6 @@ const Profile=()=>{
     const [MyPics,setMyPics]=useState([]);
     const {state,dispatch}=useContext(UserContext);
     const [image,setImage]=useState('');
-    const [url,setUrl]=useState('')
     useEffect(()=>{
         fetch("/mypost",{
          headers:{
@@ -59,7 +58,7 @@ const Profile=()=>{
         <div style={{margin:"10px auto",maxWidth:"500px"}}>
         <div style={{display:"flex",justifyContent:"space-around", margin:"180x 0px",borderBottom:"1px solid grey"  }}>
                  <div>
-                <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                <img alt="" style={{width:"160px",height:"160px",borderRadius:"80px"}}
                src={state?state.pic:"loading"}
                 />
                 <div syle={{margin:"10px"}} className="file-field input-field">

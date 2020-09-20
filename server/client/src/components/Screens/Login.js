@@ -1,5 +1,5 @@
 import React,{useState,useContext} from "react";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import M from "materialize-css";
 import {UserContext} from "../../App";
 const Login=()=>{
@@ -55,6 +55,7 @@ const Login=()=>{
         />
         <button className="btn waves-effect waves-light" onClick={()=>postData()} >Login
         </button>
+       <h6><Link to="/reset">Forgot password??</Link></h6> 
         </div>
     </div>
 </div>

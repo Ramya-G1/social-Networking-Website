@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+const { stringify } = require('query-string');
 const {ObjectId}=mongoose.Schema.Types;
 const userSchema=new mongoose.Schema({
     name:{
@@ -13,9 +14,11 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    resetToken :String,
+    expireToken:Date,
     pic:{
         type:String,
-        default:"https://res.cloudinary.com/dwa4ixyyh/image/upload/v1599733784/sample.jpg"
+        default:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     },
     followers:[
         {type:ObjectId,ref:"User"}
