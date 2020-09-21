@@ -1,5 +1,4 @@
 const mongoose=require('mongoose');
-const { stringify } = require('query-string');
 const {ObjectId}=mongoose.Schema.Types;
 const userSchema=new mongoose.Schema({
     name:{
