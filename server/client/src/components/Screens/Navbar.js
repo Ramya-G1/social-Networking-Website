@@ -50,7 +50,7 @@ const Navbar=()=> {
     })
  }
     return (
-      <div classname="darkmode" >
+      <div  >
         <nav >
         
     <div className="nav-wrapper white">
