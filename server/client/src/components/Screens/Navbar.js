@@ -9,14 +9,6 @@ const Navbar=()=> {
   const [userDetails,setUserDetails] = useState([])
   const history=useHistory();
   useEffect(()=>{
-    const M=window.M;
-
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.sidenav');
-      var instances = M.Sidenav.init(elems,{});
-    });
-  },[])
-  useEffect(()=>{
     M.Modal.init(searchModal.current)
   },[])
   const deleted=()=>{
