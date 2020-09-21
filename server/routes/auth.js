@@ -121,4 +121,3 @@ router.post('/newpassword',(req,res)=>{
     })
 })
 module.exports=router
-//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

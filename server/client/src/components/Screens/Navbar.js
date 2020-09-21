@@ -58,9 +58,14 @@ const Navbar=()=> {
     })
  }
     return (
-      <div>
+      <div classname="darkmode" >
         <nav >
+        
     <div className="nav-wrapper white">
+      <label className="switch ">
+     <input type="checkbox"/>
+      <span className="slider round"></span>
+     </label>
         <Link to={state?"/":"/login"} className="brand-logo-left" style={{marginleft:"10px"}}>  My INSTA</Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
        {list()}

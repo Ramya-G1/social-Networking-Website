@@ -126,7 +126,7 @@ const deletecomment=(postid,commentid)=>{
 }
 return (
 
-    <div className="homepage" style={{maxWidth:"500px",margin:"50px auto"}}>
+    <div className="homepage darkmode" style={{maxWidth:"500px",margin:"50px auto"}}>
         {upload.map(item=>{
             const {_id}=item.postedBy;
             return (
