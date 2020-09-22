@@ -83,7 +83,7 @@ const Profile=()=>{
         <div style={{margin:"10px auto",maxWidth:"500px"}}>
         <div style={{display:"flex",justifyContent:"space-around", margin:"180x 0px",borderBottom:"1px solid grey"  }}>
                  <div>
-                <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                <img style={{width:"110px",height:"120px",borderRadius:"80px"}}
                src={profileDetails.user.pic}
                 />
                   </div>
@@ -98,7 +98,7 @@ const Profile=()=>{
                   {showfollow?
                    <button style={{
                        margin:"10px"
-                   }} className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                   }} className="btn waves-effect waves-light "
                     onClick={()=>followUser()}
                     >
                         Follow
@@ -108,7 +108,7 @@ const Profile=()=>{
                     style={{
                         margin:"10px"
                     }}
-                    className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                    className="btn waves-effect waves-light"
                     onClick={()=>unfollowUser()}
                     >
                         UnFollow
@@ -120,7 +120,7 @@ const Profile=()=>{
                      {
                          profileDetails.posts.map(item=>{
                              return(
-                            <img key={item._id} className="pic" style={{maxheight:"400px",maxwidth:"400px",height:"150px",width:"150px"}} src={item.photo} alt={item.title}/>
+                            <img key={item._id} className="pic"  src={item.photo} alt={item.title}/>
                              )
                          })
                      }

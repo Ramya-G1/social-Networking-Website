@@ -4,12 +4,14 @@ import {UserContext} from "../../App";
 import M from 'materialize-css'
 const Navbar=()=> {
   const searchModal=useRef("");
+  const sideNav = useRef(null);
   const {state,dispatch}=useContext(UserContext);
   const [search,setSearch]=useState("");
   const [userDetails,setUserDetails] = useState([])
   const history=useHistory();
   useEffect(()=>{
     M.Modal.init(searchModal.current)
+    M.Sidenav.init(sideNav.current, {draggable: true})
   },[])
   const deleted=()=>{
     localStorage.clear();
@@ -20,17 +22,20 @@ const Navbar=()=> {
       if(state)
       {
            return [
-                <li key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>,
-                 <li key="2">< Link to="/createpost">CreatePost</Link></li>,
-                 <li key="3">< Link to="/myfollowingpost">Myfollowing posts</Link></li>,
-                 <li key="4"><Link  to="/profile">Profile</Link></li>,
-                  <li key="5" onClick={()=>deleted()}><a className="btn-large disabled" style={{color:"white"}}>Logout</a></li>
-           ]
+                <li key="1"><i onClick={() => M.Sidenav.getInstance(sideNav.current).close()} data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>,
+                 <li key="2" >< Link to="/createpost" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>CreatePost</Link></li>,
+                 <li key="3" >< Link to="/myfollowingpost" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>Myfollowing posts</Link></li>,
+                 <li key="4" ><Link  to="/profile" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>Profile</Link></li>,
+                 <li key="5" onClick={()=>{deleted()
+                  M.Sidenav.getInstance(sideNav.current).close()}}><a className="btn-large disabled" style={{color:"white"}}>Logout</a></li>
+                
+              
+      ]
       }
       else{
         return  [
-              <li key="6"><Link to="/login">Login</Link></li>,
-              <li key="7"><Link  to="/register">Register</Link></li>
+              <li key="6"><Link to="/login" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>Login</Link></li>,
+              <li key="7"><Link  to="/register" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>Register</Link></li>
            ]
       }
   }
@@ -50,15 +55,13 @@ const Navbar=()=> {
     })
  }
     return (
-      <div  >
+      <div>
         <nav >
-        
     <div className="nav-wrapper white">
-      <label className="switch ">
-     <input type="checkbox"/>
-      <span className="slider round"></span>
-     </label>
-        <Link to={state?"/":"/login"} className="brand-logo-left" style={{marginleft:"10px"}}>  My INSTA</Link>
+        <Link to={state?"/":"/login"} className="brand-logo " style={{float:"left"}}> MediaJ</Link>
+        <Link to ={""} className="sidenav-trigger" data-target="slide-out">
+			<i className="material-icons">menu</i>
+		  </Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
        {list()}
       </ul>
@@ -87,7 +90,11 @@ const Navbar=()=> {
     </div>
   </div>
   </nav>
-  </div>
+  <ul className="sidenav" id="slide-out" ref={sideNav}>
+  <li><i style={{cursor:"pointer", float:"right", margin: "10px"}} className="material-icons sidenav-close">close</i></li>
+  {list()}
+</ul>
+</div>
     )
   
 }

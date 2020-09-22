@@ -17,7 +17,7 @@ const userSchema=new mongoose.Schema({
     expireToken:Date,
     pic:{
         type:String,
-default:"https://res.cloudinary.com/dwa4ixyyh/image/upload/v1599733784/sample.jpg"
+default:"https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png"
     },
     followers:[
         {type:ObjectId,ref:"User"}

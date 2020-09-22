@@ -55,13 +55,31 @@ const Profile=()=>{
          setImage(file);
      }
     return (
-        <div style={{margin:"10px auto",maxWidth:"500px"}}>
-        <div style={{display:"flex",justifyContent:"space-around", margin:"180x 0px",borderBottom:"1px solid grey"  }}>
+        <div style={{maxWidth:"400px",margin:"0px auto"}}>
+        <div style={{
+            maxWidth:"400px",
+            display:"inline-block",
+           margin:"0px auto",
+            borderBottom:"1px solid grey"
+        }}>
+        <div style={{display:"flex",justifyContent:"space-around",marginTop:"10px"  }}>
                  <div>
-                <img alt="" style={{width:"160px",height:"160px",borderRadius:"80px"}}
-               src={state?state.pic:"loading"}
+                <img alt="" style={{marginLeft:"3px",width:"110px",height:"110px",borderRadius:"80px"}}
+                   src={state?state.pic:"loading"}
                 />
-                <div syle={{margin:"10px"}} className="file-field input-field">
+                </div>
+                <div style={{marginLeft:"18px"}}>
+               <h5>{state?state.name:"loading"}</h5>
+               <h6>{state?state.email:"loading"}</h6>
+               <div style={{display:"flex",justifyContent:"space-between",width:"105%"}}>
+                      <h6 style={{justifyContent:"center"}}>{MyPics.length} posts</h6>
+                      <h6 >{state?state.followers.length:"0"} followers</h6>
+                      <h6 >{state?state.following.length:"0"} following</h6>
+                  </div>
+                 
+                </div>
+            </div>
+            <div style={{margin:"10px"}} className="file-field input-field">
               <div className="btn">
                  <span>Upload pic</span>
                    <input type="file" onChange={e=>updatepic(e.target.files[0])}/>
@@ -71,27 +89,15 @@ const Profile=()=>{
                    </div>
                 </div>
                   </div>  
-               <div style={{margin:"30px 10px 10px 10px"}} maxwidth={{width:"25%"}}>
-               <h5>{state?state.name:"loading"}</h5>
-               <h6>{state?state.email:"loading"}</h6>
-                  <div style={{display:"flex",justifyContent:"space-between",width:"105%"}}>
-                      <h6>{MyPics.length} posts</h6>
-                      <h6>{state?state.followers.length:"0"} followers</h6>
-                      <h6>{state?state.following.length:"0"} following</h6>
-                  </div>
-                </div>
-            </div>
-             
                  <div className="gallerypics">
                      {
                          MyPics.map(item=>{
                              return(
-                            <img key={item._id} className="pic" style={{maxheight:"400px",maxwidth:"400px",height:"150px",width:"150px"}} src={item.photo} alt={item.title}/>
+                            <img key={item._id} className="pic"  src={item.photo} alt={item.title}/>
                              )
                          })
                      }
                  </div>
-             
         </div>
     )
 }

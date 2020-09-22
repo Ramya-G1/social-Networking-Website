@@ -40,7 +40,7 @@ const Login=()=>{
         <div>
     <div  className="mycard">
         <div className="card auth-card">
-        <h2>Login</h2>
+        <h2 >Login</h2>
         <input
         type="email"
         placeholder="email"
@@ -53,7 +53,7 @@ const Login=()=>{
        value={password}
         onChange={e=>setPassword(e.target.value)}
         />
-        <button className="btn waves-effect waves-light" onClick={()=>postData()} >Login
+        <button className="btn waves-effect waves-light " onClick={()=>postData()} >Login
         </button>
        <h6><Link to="/reset">Forgot password??</Link></h6> 
         </div>

@@ -126,11 +126,10 @@ const deletecomment=(postid,commentid)=>{
 }
 return (
 
-    <div className="homepage darkmode" style={{maxWidth:"500px",margin:"50px auto"}}>
+    <div className="homepage" style={{maxWidth:"500px",margin:"50px auto"}}>
         {upload.map(item=>{
             const {_id}=item.postedBy;
             return (
-                
                 <div className="card homepage-card" key={item._id}>
                 <h5 style={{marginLeft:"10px"}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link> {item.postedBy._id===state._id 
                             && <i className="material-icons" style={{float:"right" }} 

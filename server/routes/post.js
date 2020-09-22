@@ -31,7 +31,6 @@ router.post('/createpost',loginauth,(req,res)=>{
     if(!title|| !body || !pic)
     return res.json({error:"fill the fields"});
        req.user.password=undefined;
-       console.log(req.user);
     const post=new Post({
         title,
         body,

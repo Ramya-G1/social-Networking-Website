@@ -54,9 +54,9 @@ const CreatePost=()=>{
     }
     return(
         <div className="card input-field" 
-        style={{margin:"30px auto",maxWidth:"550px",padding:"20px",textAlign:"center"}}
+        style={{margin:"40px auto",maxWidth:"450px",padding:"20px",textAlign:"center"}}
         >
-            <h3>Create Post</h3>
+            <h2>Create Post</h2>
          <input type="text" placeholder="Text" 
          value={title}
          onChange={e=>setTitle(e.target.value)}
