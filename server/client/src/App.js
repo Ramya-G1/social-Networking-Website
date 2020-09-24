@@ -11,6 +11,8 @@ import CreatePost from "./components/Screens/CreatePost";
 import Getsubspost from './components/Screens/Subsposts';
 import Reset from './components/Screens/Resetpassword';
 import Newpassword from './components/Screens/Newpassword'
+import Editname from "./components/Screens/Editname"
+import Editpassword from "./components/Screens/Editpassword"
 import {reducer} from "./reducers/reducer";
 import {initialState} from "./reducers/reducer";
  export const UserContext=createContext();
@@ -41,6 +43,8 @@ import {initialState} from "./reducers/reducer";
     <Route path="/myfollowingpost"><Getsubspost/></Route>
     <Route exact path="/reset"><Reset/></Route>
     <Route  path="/reset/:token"><Newpassword/></Route>
+    <Route  path="/editpassword"><Editpassword/></Route>
+    <Route  path="/editname"><Editname/></Route>
     </Switch>
    )
  }

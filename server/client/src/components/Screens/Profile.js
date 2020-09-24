@@ -1,9 +1,13 @@
 import React,{useEffect,useState,useContext} from "react";
+import {Link, useHistory} from "react-router-dom";
 import {UserContext} from "../../App";
+
 const Profile=()=>{
+    const history=useHistory();
     const [MyPics,setMyPics]=useState([]);
     const {state,dispatch}=useContext(UserContext);
     const [image,setImage]=useState('');
+    console.log(state);
     useEffect(()=>{
         fetch("/mypost",{
          headers:{
@@ -56,6 +60,7 @@ const Profile=()=>{
      }
     return (
         <div style={{maxWidth:"400px",margin:"0px auto"}}>
+            <i className="material-icons" style={{float:"right"}} onClick={()=>history.push('/editname')}>edit</i>
         <div style={{
             maxWidth:"400px",
             display:"inline-block",

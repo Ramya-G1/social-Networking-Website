@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 const Home =()=>{
     const [upload,setUpload]=useState([]);
     const {state,dispatch}=useContext(UserContext);
+    const [comment,setComment]=useState("");
     useEffect(()=>{
        fetch("/allposts",{
         headers:{
@@ -104,6 +105,7 @@ const deletePost = (postid)=>{
         setUpload(newData)
     })
 }
+
 const deletecomment=(postid,commentid)=>{
     fetch(`/deletecomment/${postid}/${commentid}`,{
         method:"delete",
@@ -166,12 +168,21 @@ return (
                      )
                      })
                      }
-                     <form onSubmit={(e)=>{
+                     <form  autocomplete="off" onSubmit={(e)=>{
                       e.preventDefault()
-                        makeComment(e.target[0].value,item._id)
                           }}>
-                          <input type="text" placeholder="add a comment" />  
+                         <div style={{display:"flex"}}>
+                          <input id ="wrap" type="text" placeholder="add a comment" value={comment}  onChange={e=>setComment(e.target.value)}
+                          /> 
+                          <i className="material-icons" style={{float:"right",paddingTop:"15px",marginRight:"10px"}}
+                        onClick={(e)=>{makeComment(comment,item._id);
+                        setComment(" ")
+                        }} >send</i>
+                        
+                        </div>
+                        
                     </form>
+                   
                  </div>
             </div>
             )
